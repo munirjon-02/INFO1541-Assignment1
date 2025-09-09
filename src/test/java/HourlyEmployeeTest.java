@@ -1,3 +1,4 @@
+import EmployeeObjects.HourlyEmployee;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -7,7 +8,7 @@ class HourlyEmployeeTest {
     @Test
     void testIncreaseHours() {
         emp.increaseHours(35);
-        emp.increaseHours(-5); // should be ignored
+        emp.increaseHours(-5); // should not decrease
         assertEquals(35, emp.getHoursWorked());
     }
 
@@ -18,13 +19,13 @@ class HourlyEmployeeTest {
     }
 
     @Test
-    void testCalculateWeeklyPayNoOvertime() {
+    void testWeeklyPayUnder40() {
         emp.increaseHours(35);
         assertEquals(1149.75, emp.calculateWeeklyPay(), 0.01);
     }
 
     @Test
-    void testCalculateWeeklyPayWithOvertime() {
+    void testWeeklyPayOver40() {
         emp.increaseHours(45);
         assertEquals(1560.38, emp.calculateWeeklyPay(), 0.01);
     }

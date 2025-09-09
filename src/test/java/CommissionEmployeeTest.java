@@ -1,3 +1,4 @@
+import EmployeeObjects.CommissionEmployee;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -6,14 +7,14 @@ class CommissionEmployeeTest {
 
     @Test
     void testIncreaseSales() {
-        emp.increaseSales(10000);
-        emp.increaseSales(-5000); // ignored
-        assertEquals(10000, emp.getSales());
+        emp.increaseSales(5000);
+        emp.increaseSales(-2000); // should be ignored
+        assertEquals(5000, emp.getSales(), 0.01);
     }
 
     @Test
     void testHolidayBonus() {
-        assertEquals(0, emp.holidayBonus(), 0.01);
+        assertEquals(0.0, emp.holidayBonus(), 0.01);
     }
 
     @Test
