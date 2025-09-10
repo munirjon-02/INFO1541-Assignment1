@@ -33,7 +33,7 @@ public class TestingAnnotations {
                         PayRate payRate = field.getAnnotation(PayRate.class);
                         System.out.println(clazz.getSimpleName() + " pay rate (" + payRate.type() + "): $" + field.get(emp));
                     } catch (IllegalAccessException e) {
-                        e.printStackTrace();
+                        e.printStackTrace(System.err);
                     }
                 }
             }
@@ -46,7 +46,7 @@ public class TestingAnnotations {
                         Object result = method.invoke(emp);
                         System.out.println(clazz.getSimpleName() + " weekly pay: " + result);
                     } catch (Exception e) {
-                        e.printStackTrace();
+                        e.printStackTrace(System.err);
                     }
                 }
             }
@@ -54,6 +54,6 @@ public class TestingAnnotations {
             System.out.println("----------------------------");
         }
 
-        System.out.println("You have " + annotatedClasses + " employee types annotated.");
+        System.out.println("You have " + annotatedClasses + " employee types.");
     }
 }
