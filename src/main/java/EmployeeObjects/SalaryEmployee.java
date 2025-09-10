@@ -40,12 +40,12 @@ public final class SalaryEmployee extends Employee {
     }
 
     /**
-     * Gives the employee annual raise of 6.25%
+     * Gives the employee annual raise of 5%
      */
     @Override
     public void annualRaise()
     {
-       salary += salary * .0625;
+       salary += salary * .05;
     }
 
     /**
