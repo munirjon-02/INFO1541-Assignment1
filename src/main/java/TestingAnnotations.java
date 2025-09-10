@@ -1,6 +1,5 @@
-import EmployeeObjects.CommissionEmployee;
-import EmployeeObjects.HourlyEmployee;
-import EmployeeObjects.SalaryEmployee;
+import EmployeeObjects.*;
+
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -21,7 +20,7 @@ public class TestingAnnotations {
             // Class-level annotation
             if (clazz.isAnnotationPresent(EmployeeType.class)) {
                 EmployeeType type = clazz.getAnnotation(EmployeeType.class);
-                System.out.println(clazz.getSimpleName() + " EmployeeType: " + type.type());
+                System.out.println(clazz.getSimpleName() + " EmployeeObjects.EmployeeType: " + type.type());
                 annotatedClasses++;
             }
 
@@ -29,11 +28,11 @@ public class TestingAnnotations {
             for (Field field : clazz.getDeclaredFields()) {
                 if (field.isAnnotationPresent(PayRate.class)) {
                     field.setAccessible(true);
+                    PayRate payRate = field.getAnnotation(PayRate.class);
                     try {
-                        PayRate payRate = field.getAnnotation(PayRate.class);
                         System.out.println(clazz.getSimpleName() + " pay rate (" + payRate.type() + "): $" + field.get(emp));
                     } catch (IllegalAccessException e) {
-                        e.printStackTrace(System.err);
+                        System.err.println("Cannot access field " + field.getName() + " in " + clazz.getSimpleName());
                     }
                 }
             }
@@ -46,7 +45,7 @@ public class TestingAnnotations {
                         Object result = method.invoke(emp);
                         System.out.println(clazz.getSimpleName() + " weekly pay: " + result);
                     } catch (Exception e) {
-                        e.printStackTrace(System.err);
+                        System.err.println("Cannot invoke method " + method.getName() + " in " + clazz.getSimpleName());
                     }
                 }
             }

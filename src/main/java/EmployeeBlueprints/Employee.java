@@ -24,7 +24,7 @@ public abstract class Employee implements Printable {
      * @param en integer for the employee number
      * @param dept String for the department they work in
      * @param job String for the job title they hold
-     * @param et EmployeeType value for the type of employee they are.
+     * @param et EmployeeObjects.EmployeeType value for the type of employee they are.
      */
     public Employee(String fn, String ln, int en, String dept, String job, EmployeeType et)
     {
@@ -44,7 +44,7 @@ public abstract class Employee implements Printable {
      * @param fn String for the first name
      * @param ln String for the last name
      * @param en integer for the employee number
-     * @param et EmployeeType value for the type of employee they are.
+     * @param et EmployeeObjects.EmployeeType value for the type of employee they are.
      */
     public Employee(String fn, String ln, int en, EmployeeType et)
     {
@@ -90,7 +90,7 @@ public abstract class Employee implements Printable {
 
     /**
      * Returns the employee type.
-     * @return EmployeeType of the employee
+     * @return EmployeeObjects.EmployeeType of the employee
      */
     public EmployeeType getEmployeeType() {
         return employeeType;
@@ -98,7 +98,7 @@ public abstract class Employee implements Printable {
 
     /**
      * Updates the employee type.
-     * @param et EmployeeType for the update
+     * @param et EmployeeObjects.EmployeeType for the update
      */
     public void setEmployeeType(EmployeeType et)
     {
