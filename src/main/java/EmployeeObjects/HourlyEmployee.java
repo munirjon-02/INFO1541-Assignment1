@@ -9,7 +9,10 @@ import EmployeeBlueprints.EmployeeType;
  * @version 1.0.1
  */
 
+@EmployeeObjects.EmployeeType(type = "Hourly")
+
 public final class HourlyEmployee extends Employee {
+    @PayRate(type = "Hourly")
     private double wage;
     private double hoursWorked;
 
@@ -22,6 +25,7 @@ public final class HourlyEmployee extends Employee {
      * @param job String for the job title
      * @param w double for the wage/hourly pay
      */
+
     public HourlyEmployee(String fn, String ln, int en, String dept, String job, double w)
     {
         super(fn, ln, en, dept, job, EmployeeType.HOURLY);
@@ -69,6 +73,7 @@ public final class HourlyEmployee extends Employee {
      *
      * @return a double for the weekly pay
      */
+
     @Override
     public double calculateWeeklyPay()
     {
